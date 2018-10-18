@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 mkdir -p .buildkite/hooks/
 cat <<EOF >.buildkite/hooks/pre-exit
 #!/bin/bash
@@ -7,10 +9,10 @@ cat <<EOF >.buildkite/hooks/pre-exit
 echo MALIGNO pre-exit
 EOF
 
-cat <<EOF >.buildkite/hooks/pre-artifact
-#!/bin/bash
+cd .buildkite/hooks/
 
-echo MALIGNO pre-exit
-EOF
+for hook in environment pre-checkout checkout post-checkout pre-command command post-command pre-artifact post-artifact pre-exit; do
+  cp pre-exit $hook
+done
 
-chmod +x .buildkite/hooks/*
+chmod +x *
