@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo SONO MALIGNO!!!
+
+echo bla >evil_file
+
+echo SONO ANDATO A COMPRARE LE SIGARETTE >/tmp/FROM_EVIL
+echo SONO ANDATO A COMPRARE LE SIGARETTE >/root/FROM_EVIL
+
